@@ -43,7 +43,8 @@ public class Board {
 	@ColumnDefault("0")
 	private int count; //조회수
 	
-	@ManyToOne(fetch = FetchType.EAGER)  // Many = Board , One = User
+	 //Board테이블 select 할때 한번에 값 받아올 때는 Eager,한번에 받아올 필요가 없을 때 LAZY 전략			
+	@ManyToOne(fetch = FetchType.EAGER)  // Many = Board , One = User 												
 	@JoinColumn(name="userId")
 	private User user;  // DB는 오브젝트를 저장할 수 없다. FK, 자바는 오브젝트를 저장할 수 있다.
 	
