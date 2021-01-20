@@ -76,11 +76,11 @@ public class DummyControllerTest {
 	//http://localhost:8000/blog/dummy/user
 	//http://localhost:8000/blog/dummy/user?page=0 ~
 	@GetMapping("/dummy/user")
-	public List<User> pageList(@PageableDefault(size=2, sort="id", direction = Sort.Direction.DESC)Pageable pageable){
+	public Page<User> pageList(@PageableDefault(size=2, sort="id", direction = Sort.Direction.DESC)Pageable pageable){
 		Page<User> pagingUser = UserRepository.findAll(pageable); // 세부정보까지
 		
 		List<User> users = pagingUser.getContent(); //내용만 받아오게
-		return users;
+		return pagingUser;
 	}
 	
 	
