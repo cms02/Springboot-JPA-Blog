@@ -14,17 +14,23 @@ import com.cos.blog.repository.BoardRepository;
 import com.cos.blog.repository.ReplyRepository;
 import com.cos.blog.repository.UserRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class BoardService {
 
-	@Autowired
-	private BoardRepository boardRepository;
-
-	@Autowired
-	private ReplyRepository replyRepository;
-
-	@Autowired
-	private UserRepository userRepository;
+	private final BoardRepository boardRepository;
+	private final ReplyRepository replyRepository;
+	private final UserRepository userRepository;
+//	@Autowired
+//	private BoardRepository boardRepository;
+//
+//	@Autowired
+//	private ReplyRepository replyRepository;
+//
+//	@Autowired
+//	private UserRepository userRepository;
 
 	@Transactional
 	public void 글쓰기(Board board, User user) { // title, content
